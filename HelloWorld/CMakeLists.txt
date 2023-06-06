@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.14)
 
+if(NOT PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
+  # Git auto-ignore out-of-source build directory
+  file(GENERATE OUTPUT .gitignore CONTENT "*")
+endif()
+
 project(HelloWorld LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
